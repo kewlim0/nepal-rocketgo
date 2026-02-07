@@ -1,0 +1,1199 @@
+================================================================================
+                              DEPOSITS
+================================================================================
+
+==== CITIZENS_BANK_PRABESH KUMAR YADAV_20251204 (48 records) | Total Amount: Rs 247,510.00 ====
+
+Record #1
+Order ID: 27666
+Transaction Type: PENDING_DEPOSIT
+Phone Number: -
+Amount: 790.00
+Bank Charges: -
+Balance: 135579.9
+Time: 2026-02-06 10:53:32
+
+Record #2
+Order ID: 27665
+Transaction Type: MANUAL_DEPOSIT
+Phone Number: Rolate pani
+Amount: 1,000.00
+Bank Charges: -
+Balance: 134789.9
+Time: 2026-02-06 10:52:38
+
+Record #3
+Order ID: 27664
+Transaction Type: DEPOSIT
+Phone Number: Sokhim shah
+Amount: 690.00
+Bank Charges: -
+Balance: 133789.9
+Time: 2026-02-06 10:52:14
+
+Record #4
+Order ID: 27663
+Transaction Type: DEPOSIT
+Phone Number: Sokhim shah
+Amount: 390.00
+Bank Charges: -
+Balance: 133099.9
+Time: 2026-02-06 10:45:45
+
+Record #5
+Order ID: 27661
+Transaction Type: MANUAL_DEPOSIT
+Phone Number: Jaysing0715
+Amount: 250.00
+Bank Charges: -
+Balance: 132709.9
+Time: 2026-02-06 10:10:46
+
+Record #6
+Order ID: 27658
+Transaction Type: MANUAL_DEPOSIT
+Phone Number: Jaysing0715
+Amount: 250.00
+Bank Charges: -
+Balance: 132459.9
+Time: 2026-02-06 08:57:24
+
+Record #7
+Order ID: 27656
+Transaction Type: DEPOSIT
+Phone Number: Kumar gurung
+Amount: 400.00
+Bank Charges: -
+Balance: 134209.9
+Time: 2026-02-06 07:48:22
+
+Record #8
+Order ID: 27653
+Transaction Type: DEPOSIT
+Phone Number: Rukeshgi
+Amount: 1,000.00
+Bank Charges: -
+Balance: 141827.9
+Time: 2026-02-06 01:06:01
+
+Record #9
+Order ID: 27652
+Transaction Type: MANUAL_DEPOSIT
+Phone Number: Raja3333
+Amount: 1,000.00
+Bank Charges: -
+Balance: 140827.9
+Time: 2026-02-06 00:57:59
+
+Record #10
+Order ID: 27651
+Transaction Type: DEPOSIT
+Phone Number: Tekraj rawat
+Amount: 3,500.00
+Bank Charges: -
+Balance: 139827.9
+Time: 2026-02-06 00:57:37
+
+Record #11
+Order ID: 27648
+Transaction Type: DEPOSIT
+Phone Number: Rukeshgi
+Amount: 1,000.00
+Bank Charges: -
+Balance: 139327.9
+Time: 2026-02-06 00:30:56
+
+Record #12
+Order ID: 27638
+Transaction Type: CASH_IN
+Phone Number: -
+Amount: 1,000.00
+Bank Charges: -
+Balance: 141327.9
+Time: 2026-02-05 23:06:03
+
+Record #13
+Order ID: 27636
+Transaction Type: CASH_IN
+Phone Number: -
+Amount: 46,000.00
+Bank Charges: -
+Balance: 140327.9
+Time: 2026-02-05 22:53:48
+
+Record #14
+Order ID: 27634
+Transaction Type: DEPOSIT
+Phone Number: Underdog
+Amount: 200.00
+Bank Charges: -
+Balance: 94327.9
+Time: 2026-02-05 22:50:26
+
+Record #15
+Order ID: 27629
+Transaction Type: CASH_IN
+Phone Number: -
+Amount: 2,000.00
+Bank Charges: -
+Balance: 98127.9
+Time: 2026-02-05 22:16:07
+
+Record #16
+Order ID: 27626
+Transaction Type: CASH_IN
+Phone Number: -
+Amount: 50,000.00
+Bank Charges: -
+Balance: 96127.9
+Time: 2026-02-05 22:13:25
+
+Record #17
+Order ID: 27622
+Transaction Type: CASH_IN
+Phone Number: -
+Amount: 1,340.00
+Bank Charges: -
+Balance: 47127.9
+Time: 2026-02-05 21:57:46
+
+Record #18
+Order ID: 27616
+Transaction Type: CASH_IN
+Phone Number: -
+Amount: 25,000.00
+Bank Charges: -
+Balance: 46787.9
+Time: 2026-02-05 21:37:07
+
+Record #19
+Order ID: 27613
+Transaction Type: MANUAL_DEPOSIT
+Phone Number: Hari pun magar
+Amount: 1,000.00
+Bank Charges: -
+Balance: 21787.9
+Time: 2026-02-05 21:24:17
+
+Record #20
+Order ID: 27604
+Transaction Type: MANUAL_DEPOSIT
+Phone Number: Rolate pani
+Amount: 1,000.00
+Bank Charges: -
+Balance: 71795.9
+Time: 2026-02-05 20:30:16
+
+Record #21
+Order ID: 27597
+Transaction Type: DEPOSIT
+Phone Number: Jhamka bahadur magar
+Amount: 2,000.00
+Bank Charges: -
+Balance: 110841.9
+Time: 2026-02-05 19:50:32
+
+Record #22
+Order ID: 27596
+Transaction Type: MANUAL_DEPOSIT
+Phone Number: Raja3333
+Amount: 500.00
+Bank Charges: -
+Balance: 108841.9
+Time: 2026-02-05 19:49:52
+
+Record #23
+Order ID: 27594
+Transaction Type: DEPOSIT
+Phone Number: Kumar gurung
+Amount: 300.00
+Bank Charges: -
+Balance: 108341.9
+Time: 2026-02-05 19:43:57
+
+Record #24
+Order ID: 27592
+Transaction Type: DEPOSIT
+Phone Number: Pranishbhujel
+Amount: 5,000.00
+Bank Charges: -
+Balance: 108041.9
+Time: 2026-02-05 19:28:26
+
+Record #25
+Order ID: 27590
+Transaction Type: DEPOSIT
+Phone Number: Nakul3180
+Amount: 5,000.00
+Bank Charges: -
+Balance: 103041.9
+Time: 2026-02-05 19:03:57
+
+Record #26
+Order ID: 27589
+Transaction Type: DEPOSIT
+Phone Number: Sher bahadur saud
+Amount: 1,000.00
+Bank Charges: -
+Balance: 98041.9
+Time: 2026-02-05 19:01:11
+
+Record #27
+Order ID: 27588
+Transaction Type: MANUAL_DEPOSIT
+Phone Number: DIPESH TAMANG
+Amount: 1,000.00
+Bank Charges: -
+Balance: 97041.9
+Time: 2026-02-05 18:47:22
+
+Record #28
+Order ID: 27583
+Transaction Type: CASH_IN
+Phone Number: -
+Amount: 500.00
+Bank Charges: -
+Balance: 96041.9
+Time: 2026-02-05 17:03:11
+
+Record #29
+Order ID: 27581
+Transaction Type: CASH_IN
+Phone Number: -
+Amount: 2,000.00
+Bank Charges: -
+Balance: 95541.9
+Time: 2026-02-05 16:22:31
+
+Record #30
+Order ID: 27579
+Transaction Type: CASH_IN
+Phone Number: -
+Amount: 3,000.00
+Bank Charges: -
+Balance: 108549.9
+Time: 2026-02-05 15:13:00
+
+Record #31
+Order ID: 27574
+Transaction Type: DEPOSIT
+Phone Number: Mkhadka12
+Amount: 500.00
+Bank Charges: -
+Balance: 106553.9
+Time: 2026-02-05 12:26:17
+
+Record #32
+Order ID: 27573
+Transaction Type: MANUAL_DEPOSIT
+Phone Number: DIPESH TAMANG
+Amount: 500.00
+Bank Charges: -
+Balance: 106053.9
+Time: 2026-02-05 12:07:30
+
+Record #33
+Order ID: 27572
+Transaction Type: MANUAL_DEPOSIT
+Phone Number: Lopchan1989
+Amount: 500.00
+Bank Charges: -
+Balance: 105553.9
+Time: 2026-02-05 11:44:45
+
+Record #34
+Order ID: 27570
+Transaction Type: MANUAL_DEPOSIT
+Phone Number: Shankarchaudhary
+Amount: 500.00
+Bank Charges: -
+Balance: 105053.9
+Time: 2026-02-05 11:29:26
+
+Record #35
+Order ID: 27569
+Transaction Type: CASH_IN
+Phone Number: -
+Amount: 25,000.00
+Bank Charges: -
+Balance: 104553.9
+Time: 2026-02-05 11:17:49
+
+Record #36
+Order ID: 27568
+Transaction Type: CASH_IN
+Phone Number: -
+Amount: 20,000.00
+Bank Charges: -
+Balance: 79553.9
+Time: 2026-02-05 10:54:57
+
+Record #37
+Order ID: 27567
+Transaction Type: DEPOSIT
+Phone Number: Nakul3180
+Amount: 5,000.00
+Bank Charges: -
+Balance: 59553.9
+Time: 2026-02-05 10:17:05
+
+Record #38
+Order ID: 27566
+Transaction Type: DEPOSIT
+Phone Number: Bikki Jwarchan
+Amount: 200.00
+Bank Charges: -
+Balance: 54553.9
+Time: 2026-02-05 10:08:51
+
+Record #39
+Order ID: 27564
+Transaction Type: CASH_IN
+Phone Number: -
+Amount: 28,000.00
+Bank Charges: -
+Balance: 54353.9
+Time: 2026-02-05 10:00:29
+
+Record #40
+Order ID: 27563
+Transaction Type: CASH_IN
+Phone Number: -
+Amount: 2,000.00
+Bank Charges: -
+Balance: 26353.9
+Time: 2026-02-05 09:42:33
+
+Record #41
+Order ID: 27562
+Transaction Type: CASH_IN
+Phone Number: -
+Amount: 1,000.00
+Bank Charges: -
+Balance: 24353.9
+Time: 2026-02-05 09:32:46
+
+Record #42
+Order ID: 27560
+Transaction Type: DEPOSIT
+Phone Number: Binod kami
+Amount: 500.00
+Bank Charges: -
+Balance: 23353.9
+Time: 2026-02-05 09:25:34
+
+Record #43
+Order ID: 27558
+Transaction Type: DEPOSIT
+Phone Number: Sagarthapa
+Amount: 1,500.00
+Bank Charges: -
+Balance: 22853.9
+Time: 2026-02-05 08:18:10
+
+Record #44
+Order ID: 27554
+Transaction Type: DEPOSIT
+Phone Number: Bikki Jwarchan
+Amount: 200.00
+Bank Charges: -
+Balance: 33661.9
+Time: 2026-02-05 05:48:58
+
+Record #45
+Order ID: 27547
+Transaction Type: DEPOSIT
+Phone Number: Rukeshgi
+Amount: 1,000.00
+Bank Charges: -
+Balance: 37961.9
+Time: 2026-02-05 01:36:19
+
+Record #46
+Order ID: 27544
+Transaction Type: DEPOSIT
+Phone Number: Rukeshgi
+Amount: 1,000.00
+Bank Charges: -
+Balance: 38961.9
+Time: 2026-02-05 01:23:40
+
+Record #47
+Order ID: 27543
+Transaction Type: DEPOSIT
+Phone Number: Rukeshgi
+Amount: 1,000.00
+Bank Charges: -
+Balance: 37961.9
+Time: 2026-02-05 01:10:58
+
+Record #48
+Order ID: 27542
+Transaction Type: DEPOSIT
+Phone Number: Rukeshgi
+Amount: 1,000.00
+Bank Charges: -
+Balance: 36961.9
+Time: 2026-02-05 00:51:22
+
+>> Total Amount for CITIZENS_BANK_PRABESH KUMAR YADAV_20251204: Rs 247,510.00
+
+==== Esewa_bank_Shankar Yadav_20250612 (11 records) | Total Amount: Rs 14,500.00 ====
+
+Record #1
+Order ID: 27662
+Transaction Type: CASH_IN
+Phone Number: -
+Amount: 1,500.00
+Bank Charges: -
+Balance: 8756.33
+Time: 2026-02-06 10:37:56
+
+Record #2
+Order ID: 27643
+Transaction Type: DEPOSIT
+Phone Number: Prajwal Ghising
+Amount: 500.00
+Bank Charges: -
+Balance: 7256.33
+Time: 2026-02-05 23:29:49
+
+Record #3
+Order ID: 27642
+Transaction Type: DEPOSIT
+Phone Number: Bikash Thapa Magar
+Amount: 200.00
+Bank Charges: -
+Balance: 6756.33
+Time: 2026-02-05 23:28:52
+
+Record #4
+Order ID: 27627
+Transaction Type: DEPOSIT
+Phone Number: Sagarthapa
+Amount: 1,300.00
+Bank Charges: -
+Balance: 6556.33
+Time: 2026-02-05 22:14:35
+
+Record #5
+Order ID: 27600
+Transaction Type: DEPOSIT
+Phone Number: Sagarthapa
+Amount: 1,200.00
+Bank Charges: -
+Balance: 25266.33
+Time: 2026-02-05 20:17:53
+
+Record #6
+Order ID: 27587
+Transaction Type: CASH_IN
+Phone Number: -
+Amount: 1,000.00
+Bank Charges: -
+Balance: 24066.33
+Time: 2026-02-05 17:52:13
+
+Record #7
+Order ID: 27586
+Transaction Type: DEPOSIT
+Phone Number: Sagarthapa
+Amount: 1,300.00
+Bank Charges: -
+Balance: 23066.33
+Time: 2026-02-05 17:51:20
+
+Record #8
+Order ID: 27576
+Transaction Type: CASH_IN
+Phone Number: -
+Amount: 2,000.00
+Bank Charges: -
+Balance: 21766.33
+Time: 2026-02-05 12:58:37
+
+Record #9
+Order ID: 27565
+Transaction Type: CASH_IN
+Phone Number: -
+Amount: 3,800.00
+Bank Charges: -
+Balance: 19766.33
+Time: 2026-02-05 10:01:08
+
+Record #10
+Order ID: 27561
+Transaction Type: DEPOSIT
+Phone Number: Sagarthapa
+Amount: 1,500.00
+Bank Charges: -
+Balance: 15966.33
+Time: 2026-02-05 09:28:21
+
+Record #11
+Order ID: 27548
+Transaction Type: DEPOSIT
+Phone Number: Nbcxettri
+Amount: 200.00
+Bank Charges: -
+Balance: 16129.61
+Time: 2026-02-05 02:39:34
+
+>> Total Amount for Esewa_bank_Shankar Yadav_20250612: Rs 14,500.00
+
+==== LNWPAY (49 records) | Total Amount: Rs 62,800.00 ====
+
+Record #1
+Order ID: 27660
+Transaction Type: DEPOSIT
+Phone Number: ramkumar4
+Amount: 1,000.00
+Bank Charges: -
+Balance: 151301.92
+Time: 2026-02-06 09:57:07
+
+Record #2
+Order ID: 27659
+Transaction Type: DEPOSIT
+Phone Number: ramkumar4
+Amount: 1,000.00
+Bank Charges: -
+Balance: 150301.92
+Time: 2026-02-06 09:24:18
+
+Record #3
+Order ID: 27655
+Transaction Type: DEPOSIT
+Phone Number: Lilagiri
+Amount: 500.00
+Bank Charges: -
+Balance: 149301.92
+Time: 2026-02-06 07:03:33
+
+Record #4
+Order ID: 27650
+Transaction Type: DEPOSIT
+Phone Number: ramkumar4
+Amount: 500.00
+Bank Charges: -
+Balance: 148801.92
+Time: 2026-02-06 00:52:21
+
+Record #5
+Order ID: 27647
+Transaction Type: DEPOSIT
+Phone Number: ramkumar4
+Amount: 1,000.00
+Bank Charges: -
+Balance: 148301.92
+Time: 2026-02-06 00:01:51
+
+Record #6
+Order ID: 27646
+Transaction Type: DEPOSIT
+Phone Number: ramkumar4
+Amount: 1,000.00
+Bank Charges: -
+Balance: 147301.92
+Time: 2026-02-05 23:51:47
+
+Record #7
+Order ID: 27645
+Transaction Type: DEPOSIT
+Phone Number: ramkumar4
+Amount: 1,000.00
+Bank Charges: -
+Balance: 146301.92
+Time: 2026-02-05 23:41:26
+
+Record #8
+Order ID: 27644
+Transaction Type: DEPOSIT
+Phone Number: ramkumar4
+Amount: 1,000.00
+Bank Charges: -
+Balance: 145301.92
+Time: 2026-02-05 23:34:41
+
+Record #9
+Order ID: 27641
+Transaction Type: DEPOSIT
+Phone Number: ramkumar4
+Amount: 1,000.00
+Bank Charges: -
+Balance: 144301.92
+Time: 2026-02-05 23:28:34
+
+Record #10
+Order ID: 27640
+Transaction Type: DEPOSIT
+Phone Number: Karkidp123
+Amount: 1,000.00
+Bank Charges: -
+Balance: 143301.92
+Time: 2026-02-05 23:22:28
+
+Record #11
+Order ID: 27637
+Transaction Type: DEPOSIT
+Phone Number: Mahesh980
+Amount: 500.00
+Bank Charges: -
+Balance: 142301.92
+Time: 2026-02-05 22:59:24
+
+Record #12
+Order ID: 27635
+Transaction Type: DEPOSIT
+Phone Number: Mahesh980
+Amount: 500.00
+Bank Charges: -
+Balance: 141801.92
+Time: 2026-02-05 22:53:42
+
+Record #13
+Order ID: 27633
+Transaction Type: DEPOSIT
+Phone Number: Mahesh980
+Amount: 500.00
+Bank Charges: -
+Balance: 141301.92
+Time: 2026-02-05 22:43:28
+
+Record #14
+Order ID: 27631
+Transaction Type: DEPOSIT
+Phone Number: Mahesh980
+Amount: 500.00
+Bank Charges: -
+Balance: 140801.92
+Time: 2026-02-05 22:33:16
+
+Record #15
+Order ID: 27628
+Transaction Type: DEPOSIT
+Phone Number: Gaurav69
+Amount: 2,000.00
+Bank Charges: -
+Balance: 140301.92
+Time: 2026-02-05 22:15:42
+
+Record #16
+Order ID: 27624
+Transaction Type: DEPOSIT
+Phone Number: Anita Shrestha
+Amount: 3,000.00
+Bank Charges: -
+Balance: 138301.92
+Time: 2026-02-05 22:09:20
+
+Record #17
+Order ID: 27623
+Transaction Type: DEPOSIT
+Phone Number: Anita Shrestha
+Amount: 2,000.00
+Bank Charges: -
+Balance: 135301.92
+Time: 2026-02-05 22:04:36
+
+Record #18
+Order ID: 27621
+Transaction Type: DEPOSIT
+Phone Number: ramkumar4
+Amount: 1,000.00
+Bank Charges: -
+Balance: 133301.92
+Time: 2026-02-05 21:56:02
+
+Record #19
+Order ID: 27620
+Transaction Type: DEPOSIT
+Phone Number: Anita Shrestha
+Amount: 3,000.00
+Bank Charges: -
+Balance: 132301.92
+Time: 2026-02-05 21:55:47
+
+Record #20
+Order ID: 27618
+Transaction Type: DEPOSIT
+Phone Number: Anita Shrestha
+Amount: 2,000.00
+Bank Charges: -
+Balance: 129301.92
+Time: 2026-02-05 21:44:07
+
+Record #21
+Order ID: 27617
+Transaction Type: DEPOSIT
+Phone Number: Anita Shrestha
+Amount: 3,000.00
+Bank Charges: -
+Balance: 127301.92
+Time: 2026-02-05 21:38:11
+
+Record #22
+Order ID: 27615
+Transaction Type: DEPOSIT
+Phone Number: KRITAN DANGOL
+Amount: 2,000.00
+Bank Charges: -
+Balance: 124301.92
+Time: 2026-02-05 21:33:49
+
+Record #23
+Order ID: 27614
+Transaction Type: DEPOSIT
+Phone Number: Anita Shrestha
+Amount: 2,500.00
+Bank Charges: -
+Balance: 122301.92
+Time: 2026-02-05 21:28:52
+
+Record #24
+Order ID: 27612
+Transaction Type: DEPOSIT
+Phone Number: Anita Shrestha
+Amount: 1,400.00
+Bank Charges: -
+Balance: 119801.92
+Time: 2026-02-05 21:19:17
+
+Record #25
+Order ID: 27610
+Transaction Type: DEPOSIT
+Phone Number: Mahesh980
+Amount: 500.00
+Bank Charges: -
+Balance: 118401.92
+Time: 2026-02-05 21:14:36
+
+Record #26
+Order ID: 27609
+Transaction Type: DEPOSIT
+Phone Number: Gaurav69
+Amount: 2,000.00
+Bank Charges: -
+Balance: 117901.92
+Time: 2026-02-05 21:09:14
+
+Record #27
+Order ID: 27608
+Transaction Type: DEPOSIT
+Phone Number: Mahesh980
+Amount: 500.00
+Bank Charges: -
+Balance: 115901.92
+Time: 2026-02-05 21:04:43
+
+Record #28
+Order ID: 27607
+Transaction Type: DEPOSIT
+Phone Number: ramkumar4
+Amount: 3,000.00
+Bank Charges: -
+Balance: 115401.92
+Time: 2026-02-05 21:02:03
+
+Record #29
+Order ID: 27606
+Transaction Type: DEPOSIT
+Phone Number: ramkumar4
+Amount: 1,000.00
+Bank Charges: -
+Balance: 112401.92
+Time: 2026-02-05 20:48:36
+
+Record #30
+Order ID: 27603
+Transaction Type: DEPOSIT
+Phone Number: Anita Shrestha
+Amount: 5,000.00
+Bank Charges: -
+Balance: 111401.92
+Time: 2026-02-05 20:29:46
+
+Record #31
+Order ID: 27602
+Transaction Type: DEPOSIT
+Phone Number: Anita Shrestha
+Amount: 2,000.00
+Bank Charges: -
+Balance: 106401.92
+Time: 2026-02-05 20:26:01
+
+Record #32
+Order ID: 27599
+Transaction Type: DEPOSIT
+Phone Number: Anita Shrestha
+Amount: 3,000.00
+Bank Charges: -
+Balance: 104401.92
+Time: 2026-02-05 20:17:18
+
+Record #33
+Order ID: 27598
+Transaction Type: DEPOSIT
+Phone Number: Bishal222
+Amount: 500.00
+Bank Charges: -
+Balance: 101401.92
+Time: 2026-02-05 19:54:24
+
+Record #34
+Order ID: 27595
+Transaction Type: DEPOSIT
+Phone Number: Ramji1234
+Amount: 3,000.00
+Bank Charges: -
+Balance: 100901.92
+Time: 2026-02-05 19:44:05
+
+Record #35
+Order ID: 27593
+Transaction Type: DEPOSIT
+Phone Number: Karkidp123
+Amount: 500.00
+Bank Charges: -
+Balance: 97901.92
+Time: 2026-02-05 19:43:52
+
+Record #36
+Order ID: 27591
+Transaction Type: DEPOSIT
+Phone Number: ramkumar4
+Amount: 1,000.00
+Bank Charges: -
+Balance: 97401.92
+Time: 2026-02-05 19:27:25
+
+Record #37
+Order ID: 27585
+Transaction Type: DEPOSIT
+Phone Number: Navraj adhikari
+Amount: 1,400.00
+Bank Charges: -
+Balance: 96401.92
+Time: 2026-02-05 17:12:16
+
+Record #38
+Order ID: 27584
+Transaction Type: DEPOSIT
+Phone Number: Navraj adhikari
+Amount: 500.00
+Bank Charges: -
+Balance: 95001.92
+Time: 2026-02-05 17:04:25
+
+Record #39
+Order ID: 27582
+Transaction Type: DEPOSIT
+Phone Number: Bishal222
+Amount: 500.00
+Bank Charges: -
+Balance: 94501.92
+Time: 2026-02-05 16:49:28
+
+Record #40
+Order ID: 27578
+Transaction Type: DEPOSIT
+Phone Number: Bhim bdr malla
+Amount: 500.00
+Bank Charges: -
+Balance: 94001.92
+Time: 2026-02-05 14:39:06
+
+Record #41
+Order ID: 27577
+Transaction Type: DEPOSIT
+Phone Number: Ramji1234
+Amount: 1,000.00
+Bank Charges: -
+Balance: 93501.92
+Time: 2026-02-05 12:59:48
+
+Record #42
+Order ID: 27571
+Transaction Type: DEPOSIT
+Phone Number: ramkumar4
+Amount: 500.00
+Bank Charges: -
+Balance: 92501.92
+Time: 2026-02-05 11:31:03
+
+Record #43
+Order ID: 27559
+Transaction Type: DEPOSIT
+Phone Number: Bikki Jwarchan
+Amount: 500.00
+Bank Charges: -
+Balance: 92001.92
+Time: 2026-02-05 09:03:13
+
+Record #44
+Order ID: 27556
+Transaction Type: DEPOSIT
+Phone Number: Bikki Jwarchan
+Amount: 500.00
+Bank Charges: -
+Balance: 91501.92
+Time: 2026-02-05 06:32:03
+
+Record #45
+Order ID: 27555
+Transaction Type: DEPOSIT
+Phone Number: Bikki Jwarchan
+Amount: 500.00
+Bank Charges: -
+Balance: 91001.92
+Time: 2026-02-05 06:14:05
+
+Record #46
+Order ID: 27552
+Transaction Type: DEPOSIT
+Phone Number: Bikki Jwarchan
+Amount: 500.00
+Bank Charges: -
+Balance: 90501.92
+Time: 2026-02-05 03:23:59
+
+Record #47
+Order ID: 27551
+Transaction Type: DEPOSIT
+Phone Number: Bikki Jwarchan
+Amount: 500.00
+Bank Charges: -
+Balance: 90001.92
+Time: 2026-02-05 03:12:35
+
+Record #48
+Order ID: 27550
+Transaction Type: DEPOSIT
+Phone Number: Bikki Jwarchan
+Amount: 500.00
+Bank Charges: -
+Balance: 89501.92
+Time: 2026-02-05 03:05:34
+
+Record #49
+Order ID: 27545
+Transaction Type: DEPOSIT
+Phone Number: Bikki Jwarchan
+Amount: 500.00
+Bank Charges: -
+Balance: 89001.92
+Time: 2026-02-05 01:25:59
+
+>> Total Amount for LNWPAY: Rs 62,800.00
+================================================================================
+                              WITHDRAWALS
+================================================================================
+
+==== CITIZENS_BANK_PRABESH KUMAR YADAV_20251204 (17 records) | Total Amount: Rs 149,848.00 ====
+
+Record #1
+Order ID: 27657
+Transaction Type: WITHDRAWAL
+Phone Number: ramkumar4
+Amount: 2,000.00
+Bank Charges: -
+Balance: 132209.9
+Time: 2026-02-06 08:27:46
+
+Record #2
+Order ID: 27654
+Transaction Type: WITHDRAWAL
+Phone Number: Nakul3180
+Amount: 8,010.00
+Bank Charges: 8.00
+Balance: 133809.9
+Time: 2026-02-06 06:04:55
+
+Record #3
+Order ID: 27649
+Transaction Type: WITHDRAWAL
+Phone Number: ramkumar4
+Amount: 3,000.00
+Bank Charges: -
+Balance: 136327.9
+Time: 2026-02-06 00:43:37
+
+Record #4
+Order ID: 27639
+Transaction Type: WITHDRAWAL
+Phone Number: ramkumar4
+Amount: 3,000.00
+Bank Charges: -
+Balance: 138327.9
+Time: 2026-02-05 23:14:10
+
+Record #5
+Order ID: 27632
+Transaction Type: WITHDRAWAL
+Phone Number: Rolate pani
+Amount: 3,000.00
+Bank Charges: -
+Balance: 94127.9
+Time: 2026-02-05 22:39:13
+
+Record #6
+Order ID: 27630
+Transaction Type: WITHDRAWAL
+Phone Number: Mahesh980
+Amount: 1,000.00
+Bank Charges: -
+Balance: 97127.9
+Time: 2026-02-05 22:27:57
+
+Record #7
+Order ID: 27625
+Transaction Type: WITHDRAWAL
+Phone Number: Mahesh980
+Amount: 1,000.00
+Bank Charges: -
+Balance: 46127.9
+Time: 2026-02-05 22:09:59
+
+Record #8
+Order ID: 27619
+Transaction Type: WITHDRAWAL
+Phone Number: KRITAN DANGOL
+Amount: 1,000.00
+Bank Charges: -
+Balance: 45787.9
+Time: 2026-02-05 21:51:04
+
+Record #9
+Order ID: 27605
+Transaction Type: CASH_OUT
+Phone Number: -
+Amount: 51,000.00
+Bank Charges: 8.00
+Balance: 20787.9
+Time: 2026-02-05 20:33:30
+
+Record #10
+Order ID: 27601
+Transaction Type: WITHDRAWAL
+Phone Number: Pranishbhujel
+Amount: 40,038.00
+Bank Charges: 8.00
+Balance: 70795.9
+Time: 2026-02-05 20:22:11
+
+Record #11
+Order ID: 27580
+Transaction Type: CASH_OUT
+Phone Number: -
+Amount: 15,000.00
+Bank Charges: 8.00
+Balance: 93541.9
+Time: 2026-02-05 15:30:29
+
+Record #12
+Order ID: 27575
+Transaction Type: WITHDRAWAL
+Phone Number: DIPESH TAMANG
+Amount: 1,000.00
+Bank Charges: 4.00
+Balance: 105549.9
+Time: 2026-02-05 12:41:19
+
+Record #13
+Order ID: 27557
+Transaction Type: WITHDRAWAL
+Phone Number: Nakul3180
+Amount: 12,300.00
+Bank Charges: 8.00
+Balance: 21353.9
+Time: 2026-02-05 07:03:14
+
+Record #14
+Order ID: 27553
+Transaction Type: CASH_OUT
+Phone Number: -
+Amount: 4,500.00
+Bank Charges: -
+Balance: 33461.9
+Time: 2026-02-05 05:31:02
+
+Record #15
+Order ID: 27546
+Transaction Type: WITHDRAWAL
+Phone Number: Raja3333
+Amount: 2,000.00
+Bank Charges: -
+Balance: 36961.9
+Time: 2026-02-05 01:32:28
+
+Record #16
+Order ID: 27541
+Transaction Type: WITHDRAWAL
+Phone Number: Raja3333
+Amount: 1,000.00
+Bank Charges: -
+Balance: 35961.9
+Time: 2026-02-05 00:19:10
+
+Record #17
+Order ID: 27540
+Transaction Type: WITHDRAWAL
+Phone Number: Raja3333
+Amount: 1,000.00
+Bank Charges: -
+Balance: 36961.9
+Time: 2026-02-05 00:01:54
+
+>> Total Amount for CITIZENS_BANK_PRABESH KUMAR YADAV_20251204: Rs 149,848.00
+
+==== Esewa_bank_Shankar Yadav_20250612 (2 records) | Total Amount: Rs 21,663.28 ====
+
+Record #1
+Order ID: 27611
+Transaction Type: WITHDRAWAL
+Phone Number: Anita Shrestha
+Amount: 20,000.00
+Bank Charges: 10.00
+Balance: 5256.33
+Time: 2026-02-05 21:16:18
+
+Record #2
+Order ID: 27549
+Transaction Type: WITHDRAWAL
+Phone Number: Raja3333
+Amount: 1,663.28
+Bank Charges: -
+Balance: 14466.33
+Time: 2026-02-05 02:57:10
+
+>> Total Amount for Esewa_bank_Shankar Yadav_20250612: Rs 21,663.28
+
+=========================== GRAND TOTAL for All Gateways ===========================
+
+  DEPOSITS Records: 108
+  WITHDRAWALS Records: 19
+
+==== pg CITIZENS_BANK_PRABESH KUMAR YADAV_20251204_02/06/2026 ====
+
+  DEPOSITS Records: 48
+  DEPOSITS Amount: 247,510.00
+
+  WITHDRAWALS Records: 17
+  WITHDRAWALS Amount: 149,848.00
+
+==== pg Esewa_bank_Shankar Yadav_20250612_02/06/2026 ====
+
+  DEPOSITS Records: 11
+  DEPOSITS Amount: 14,500.00
+
+  WITHDRAWALS Records: 2
+  WITHDRAWALS Amount: 21,663.28
+
+==== pg LNWPAY_02/06/2026 ====
+
+  DEPOSITS Records: 49
+  DEPOSITS Amount: 62,800.00
+
+  WITHDRAWALS Records: 0
+  WITHDRAWALS Amount: 0.00
+
