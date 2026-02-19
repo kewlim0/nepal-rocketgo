@@ -248,7 +248,7 @@ def extract_transaction_data_with_date_filter(driver, start_date, end_date, wait
                 txn_type = cols[6].text.strip() if len(cols) > 6 else ""
                 print(f"[DEBUG] Row {idx + 1}: Found transaction type '{txn_type}'")
                 
-                if txn_type.upper() not in ("DEPOSIT", "PENDING_DEPOSIT", "MANUAL_DEPOSIT", "WITHDRAWAL", "MANUAL_WITHDRAWAL", "ADJUSTMENTADD", "ADJUSTMENTDEDUCT", "CASH_IN", "CASH_OUT"):
+                if txn_type.upper() not in ("DEPOSIT", "PENDING_DEPOSIT", "MANUAL_DEPOSIT", "WITHDRAWAL", "MANUAL_WITHDRAWAL", "ADJUSTMENTADD", "ADJUSTMENTDEDUCT", "CASH_IN", "CASH_OUT", "INTERBANK_TRANSFER_IN", "INTERBANK_TRANSFER_OUT"):
                     print(f"[DEBUG] Row {idx + 1}: Skipping '{txn_type}' - not in allowed list")
                     continue
                 
@@ -257,9 +257,9 @@ def extract_transaction_data_with_date_filter(driver, start_date, end_date, wait
 
                 
                 # Parse amount - different column based on transaction type
-                if txn_type.upper() in ("WITHDRAWAL", "MANUAL_WITHDRAWAL", "ADJUSTMENTDEDUCT", "CASH_OUT"):
+                if txn_type.upper() in ("WITHDRAWAL", "MANUAL_WITHDRAWAL", "ADJUSTMENTDEDUCT", "CASH_OUT", "INTERBANK_TRANSFER_OUT"):
                     amount_text = cols[8].text.strip().replace("Rs", "").replace(",", "").strip()
-                else:  # DEPOSIT, PENDING_DEPOSIT, MANUAL_DEPOSIT, ADJUSTMENTADD, CASH_IN
+                else:  # DEPOSIT, PENDING_DEPOSIT, MANUAL_DEPOSIT, ADJUSTMENTADD, CASH_IN, INTERBANK_TRANSFER_IN
                     amount_text = cols[7].text.strip().replace("Rs", "").replace(",", "").strip()
                 try:
                     amount = float(amount_text) if amount_text else 0.0
@@ -321,10 +321,10 @@ def print_grouped_results(gateway_groups):
             for record in records:
                 txn_type = record.get("Transaction Type", "").upper()
                 print(f"[DEBUG] Record transaction type: '{txn_type}' from record: {record.get('Transaction Type', 'MISSING')}")
-                if txn_type in ("DEPOSIT", "PENDING_DEPOSIT", "MANUAL_DEPOSIT", "ADJUSTMENTADD", "CASH_IN"):
+                if txn_type in ("DEPOSIT", "PENDING_DEPOSIT", "MANUAL_DEPOSIT", "ADJUSTMENTADD", "CASH_IN", "INTERBANK_TRANSFER_IN"):
                     deposit_groups[gateway].append(record)
                     print(f"[DEBUG] Added to deposits: {txn_type}")
-                elif txn_type in ("WITHDRAWAL", "MANUAL_WITHDRAWAL", "ADJUSTMENTDEDUCT", "CASH_OUT"):
+                elif txn_type in ("WITHDRAWAL", "MANUAL_WITHDRAWAL", "ADJUSTMENTDEDUCT", "CASH_OUT", "INTERBANK_TRANSFER_OUT"):
                     withdrawal_groups[gateway].append(record)
                     print(f"[DEBUG] Added to withdrawals: {txn_type}")
                 else:
@@ -351,18 +351,20 @@ def print_grouped_results(gateway_groups):
                 print(f"\033[92m{header}\033[0m")
                 f.write(header)
 
-                # Sort records by time (latest first) with error handling
-                def safe_parse_time(record):
+                # Sort records by Order ID (higher ID = latest) with error handling
+                def safe_parse_id(record):
+                    """Parse Order ID for sorting (higher ID = more recent)"""
                     try:
-                        if record["Time"] and record["Time"].strip():
-                            return datetime.strptime(record["Time"], "%Y-%m-%d %H:%M:%S")
+                        order_id = record.get("Order ID", "0")
+                        if order_id and str(order_id).strip():
+                            return int(str(order_id).strip())
                         else:
-                            return datetime.min  # Put records with no time at the end
-                    except ValueError:
-                        print(f"[WARNING] Invalid time format: '{record['Time']}'")
-                        return datetime.min
+                            return 0  # Put records with no ID at the end
+                    except (ValueError, TypeError):
+                        print(f"[WARNING] Invalid Order ID format: '{record.get('Order ID')}'")
+                        return 0
 
-                sorted_records = sorted(records, key=safe_parse_time, reverse=True)
+                sorted_records = sorted(records, key=safe_parse_id, reverse=True)
 
                 for i, record in enumerate(sorted_records, 1):
                     entry = (
@@ -389,59 +391,121 @@ def print_grouped_results(gateway_groups):
 
         total_records = sum(len(records) for records in gateway_groups.values())
 
-        # ✅ Only once at the end
-        deposit_count = sum(len(records) for records in deposit_groups.values())
-        withdrawal_count = sum(len(records) for records in withdrawal_groups.values())
-        
-        # Create grand footer with gateway-specific breakdown
-        f.write("\n")
-        
-        # Add grand total summary at the beginning (green header)
-        grand_total_header = f"=========================== GRAND TOTAL for All Gateways ===========================\n\n"
-        print(f"\033[92m{grand_total_header}\033[0m", end="")
-        f.write(grand_total_header)
-        
-        # Print grand total with green numbers
-        print(f"\033[95m  DEPOSITS Records: \033[92m{deposit_count}\033[95m\n\033[0m", end="")
-        print(f"\033[95m  WITHDRAWALS Records: \033[92m{withdrawal_count}\033[95m\n\n\033[0m", end="")
-        f.write(f"  DEPOSITS Records: {deposit_count}\n")
-        f.write(f"  WITHDRAWALS Records: {withdrawal_count}\n\n")
-        
-        # Iterate through each gateway and create summary
-        for gateway, records in gateway_groups.items():
-            # Count deposits and withdrawals for this gateway
-            gateway_deposits = len([r for r in records if r.get("Transaction Type", "").upper() in ("DEPOSIT", "PENDING_DEPOSIT", "MANUAL_DEPOSIT", "ADJUSTMENTADD", "CASH_IN")])
-            gateway_withdrawals = len([r for r in records if r.get("Transaction Type", "").upper() in ("WITHDRAWAL", "MANUAL_WITHDRAWAL", "ADJUSTMENTDEDUCT", "CASH_OUT")])
-
-            # Calculate amounts for this gateway
-            deposit_amount = sum(r["Amount"] for r in records if r.get("Transaction Type", "").upper() in ("DEPOSIT", "PENDING_DEPOSIT", "MANUAL_DEPOSIT", "ADJUSTMENTADD", "CASH_IN"))
-            withdrawal_amount = sum(r["Amount"] for r in records if r.get("Transaction Type", "").upper() in ("WITHDRAWAL", "MANUAL_WITHDRAWAL", "ADJUSTMENTDEDUCT", "CASH_OUT"))
-            
-            # Extract date from the first record's time
+        # Helper to parse Bank Tax value from string
+        def parse_fee(fee_str):
             try:
-                if records[0]["Time"] and records[0]["Time"].strip():
-                    transaction_date = datetime.strptime(records[0]["Time"], "%Y-%m-%d %H:%M:%S").strftime("%m/%d/%Y")
-                else:
-                    transaction_date = "Unknown"
-            except (ValueError, IndexError):
-                transaction_date = "Unknown"
-            
-            # Create gateway header (green)
-            gateway_header = f"==== pg {gateway}_{transaction_date} ====\n\n"
-            print(f"\033[92m{gateway_header}\033[0m", end="")
-            f.write(gateway_header)
-            
-            # Create gateway summary (purple text, green numbers)
-            print(f"\033[95m  DEPOSITS Records: \033[92m{gateway_deposits}\033[95m\n\033[0m", end="")
-            print(f"\033[95m  DEPOSITS Amount: \033[92m{deposit_amount:,.2f}\033[95m\n\n\033[0m", end="")
-            print(f"\033[95m  WITHDRAWALS Records: \033[92m{gateway_withdrawals}\033[95m\n\033[0m", end="")
-            print(f"\033[95m  WITHDRAWALS Amount: \033[92m{withdrawal_amount:,.2f}\033[95m\n\n\033[0m", end="")
-            
-            f.write(f"  DEPOSITS Records: {gateway_deposits}\n")
-            f.write(f"  DEPOSITS Amount: {deposit_amount:,.2f}\n\n")
-            f.write(f"  WITHDRAWALS Records: {gateway_withdrawals}\n")
-            f.write(f"  WITHDRAWALS Amount: {withdrawal_amount:,.2f}\n\n")
+                return float(str(fee_str).replace("Rs", "").replace(",", "").strip()) if fee_str and str(fee_str).strip() else 0.0
+            except (ValueError, TypeError):
+                return 0.0
 
+        DEPOSIT_TYPES = ("DEPOSIT", "PENDING_DEPOSIT", "MANUAL_DEPOSIT", "ADJUSTMENTADD", "CASH_IN", "INTERBANK_TRANSFER_IN")
+        WITHDRAWAL_TYPES = ("WITHDRAWAL", "MANUAL_WITHDRAWAL", "ADJUSTMENTDEDUCT", "CASH_OUT", "INTERBANK_TRANSFER_OUT")
+
+        # Collect per-gateway stats
+        deposit_stats = {}  # gateway -> (count, amount, fee)
+        withdrawal_stats = {}
+
+        for gateway, records in gateway_groups.items():
+            dep_records = [r for r in records if r.get("Transaction Type", "").upper() in DEPOSIT_TYPES]
+            wit_records = [r for r in records if r.get("Transaction Type", "").upper() in WITHDRAWAL_TYPES]
+
+            if dep_records:
+                deposit_stats[gateway] = (
+                    len(dep_records),
+                    sum(r["Amount"] for r in dep_records),
+                    sum(parse_fee(r.get("Bank Tax", "")) for r in dep_records)
+                )
+            if wit_records:
+                withdrawal_stats[gateway] = (
+                    len(wit_records),
+                    sum(r["Amount"] for r in wit_records),
+                    sum(parse_fee(r.get("Bank Tax", "")) for r in wit_records)
+                )
+
+        # Helper to build a box-drawing table
+        def build_table(title, stats):
+            """Build a box-drawing table. stats = {gateway: (count, amount, fee)}"""
+            if not stats:
+                return ""
+
+            # Calculate column widths
+            col1_width = max(len(title), max(len(gw) for gw in stats), len("TOTAL"))
+            col2_width = max(len("Records"), max(len(str(s[0])) for s in stats.values()))
+
+            # Format amounts and fees
+            amounts = {gw: f"Rs {s[1]:,.2f}" for gw, s in stats.items()}
+            fees = {gw: f"Rs {s[2]:,.2f}" for gw, s in stats.items()}
+            total_count = sum(s[0] for s in stats.values())
+            total_amount = sum(s[1] for s in stats.values())
+            total_fee = sum(s[2] for s in stats.values())
+            total_amount_str = f"Rs {total_amount:,.2f}"
+            total_fee_str = f"Rs {total_fee:,.2f}"
+
+            col3_width = max(len("Amount"), max(len(a) for a in amounts.values()), len(total_amount_str))
+            col4_width = max(len("Fee"), max(len(f) for f in fees.values()), len(total_fee_str))
+            col2_width = max(col2_width, len(str(total_count)))
+
+            # Build the table
+            sep = f"+-{'-'*col1_width}-+-{'-'*col2_width}-+-{'-'*col3_width}-+-{'-'*col4_width}-+"
+            header = f"| {title:<{col1_width}} | {'Records':>{col2_width}} | {'Amount':>{col3_width}} | {'Fee':>{col4_width}} |"
+
+            lines = [sep, header, sep]
+            for gw, (count, _, _) in stats.items():
+                lines.append(f"| {gw:<{col1_width}} | {count:>{col2_width}} | {amounts[gw]:>{col3_width}} | {fees[gw]:>{col4_width}} |")
+            lines.append(sep)
+            lines.append(f"| {'TOTAL':<{col1_width}} | {total_count:>{col2_width}} | {total_amount_str:>{col3_width}} | {total_fee_str:>{col4_width}} |")
+            lines.append(sep)
+
+            return "\n".join(lines)
+
+        # Build grand total output
+        f.write("\n")
+        grand_total_header = "=========================== GRAND TOTAL ==========================="
+        print(f"\033[92m{grand_total_header}\033[0m")
+        f.write(grand_total_header + "\n")
+
+        # Deposits table
+        dep_table = build_table("DEPOSITS", deposit_stats)
+        if dep_table:
+            print(f"\033[92m{dep_table}\033[0m")
+            f.write(dep_table + "\n")
+
+        # Blank line between tables
+        print()
+        f.write("\n")
+
+        # Withdrawals table
+        wit_table = build_table("WITHDRAWALS", withdrawal_stats)
+        if wit_table:
+            print(f"\033[92m{wit_table}\033[0m")
+            f.write(wit_table + "\n")
+
+
+
+def wait_for_table_loaded(driver, timeout=20):
+    """Wait for the ant-spin-blur effect to disappear, indicating table data is ready."""
+    try:
+        # First, wait briefly for the blur to appear (it may take a moment after click)
+        time.sleep(0.5)
+
+        # Check if blur is present
+        blur_elements = driver.find_elements(By.CSS_SELECTOR, ".ant-spin-container.ant-spin-blur")
+        if blur_elements:
+            print("[INFO] Table loading detected (blur effect). Waiting for data to load...")
+            WebDriverWait(driver, timeout).until(
+                EC.none_of(EC.presence_of_element_located((By.CSS_SELECTOR, ".ant-spin-container.ant-spin-blur")))
+            )
+            print("[INFO] Table loading complete (blur removed)")
+        else:
+            print("[DEBUG] No blur detected, table may already be loaded")
+
+        # Small extra delay for DOM to stabilize
+        time.sleep(0.5)
+        return True
+    except Exception as e:
+        print(f"[WARNING] Timeout waiting for blur to clear: {e}. Proceeding anyway.")
+        time.sleep(2)
+        return True
 
 
 def click_next_page(driver, wait_timeout=10):
@@ -451,12 +515,12 @@ def click_next_page(driver, wait_timeout=10):
             # Fallback: by class only (less strict)
             "//button[@class='ant-pagination-item-link']",
         ]
-        
+
         next_button = None
         working_selector = None
-        
+
         print("[DEBUG] Searching for Next button...")
-        
+
         for selector in selectors_to_try:
             try:
                 print(f"[DEBUG] Trying: {selector}")
@@ -469,59 +533,59 @@ def click_next_page(driver, wait_timeout=10):
             except Exception as e:
                 print(f"[DEBUG] Failed: {e}")
                 continue
-        
+
         if not next_button:
             print("[ERROR] Could not find Next button with any selector")
             return False
-        
+
         # Try multiple click strategies
         print(f"[DEBUG] Found button, attempting to click using: {working_selector}")
-        
+
         # Strategy 1: Regular click
         try:
             next_button.click()
-            time.sleep(4)
+            time.sleep(1)
             print(f"[INFO] Successfully clicked Next button with regular click")
             return True
         except Exception as e:
             print(f"[DEBUG] Regular click failed: {e}")
-        
+
         # Strategy 2: JavaScript click
         try:
             print("[DEBUG] Trying JavaScript click...")
             driver.execute_script("arguments[0].click();", next_button)
-            time.sleep(2)
+            time.sleep(1)
             print(f"[INFO] Successfully clicked Next button with JavaScript")
             return True
         except Exception as e:
             print(f"[DEBUG] JavaScript click failed: {e}")
-        
+
         # Strategy 3: Action chains click
         try:
             from selenium.webdriver.common.action_chains import ActionChains
             print("[DEBUG] Trying ActionChains click...")
             ActionChains(driver).move_to_element(next_button).click().perform()
-            time.sleep(2)
+            time.sleep(1)
             print(f"[INFO] Successfully clicked Next button with ActionChains")
             return True
         except Exception as e:
             print(f"[DEBUG] ActionChains click failed: {e}")
-        
+
         # Strategy 4: Scroll into view then click
         try:
             print("[DEBUG] Trying scroll into view then click...")
             driver.execute_script("arguments[0].scrollIntoView(true);", next_button)
             time.sleep(1)
             next_button.click()
-            time.sleep(2)
+            time.sleep(1)
             print(f"[INFO] Successfully clicked Next button after scrolling into view")
             return True
         except Exception as e:
             print(f"[DEBUG] Scroll + click failed: {e}")
-        
+
         print("[ERROR] All click strategies failed")
         return False
-        
+
     except Exception as e:
         print(f"[WARNING] Could not click Next button: {e}")
         return False
@@ -573,16 +637,16 @@ def run_optimized_transaction_extraction(driver, start_date, end_date):
         
         # Try to go to next page
         print(f"[DEBUG] Attempting to navigate to next page...")
-        time.sleep(1)
         has_next = click_next_page(driver)
         if not has_next:
             print("[INFO] No more pages found. Finishing extraction.")
             break
-        else:
-            print(f"[SUCCESS] Successfully navigated to page {page_counter + 1}")
-            
+
+        # Wait for blur/loading effect to finish before scraping next page
+        wait_for_table_loaded(driver)
+        print(f"[SUCCESS] Successfully navigated to page {page_counter + 1}")
+
         page_counter += 1
-        time.sleep(1)
     
     # Group records by gateway for output
     gateway_groups = defaultdict(list)

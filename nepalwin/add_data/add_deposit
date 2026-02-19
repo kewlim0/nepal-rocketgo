@@ -614,43 +614,43 @@ def get_start_by_balance():
 
                 elif len(matching_records) == 1:
                     record = matching_records[0]
-                    print(f"\n     Found 1 matching record:")
-                    print(f"     Record #{record['record_number']}")
-                    print(f"     Order ID: {record.get('Order ID')}")
-                    print(f"     Transaction Type: {record.get('Transaction Type')}")
-                    print(f"     Phone Number: {record.get('Phone Number')}")
-                    print(f"     Amount: {record.get('Amount')}")
-                    print(f"     Balance: {record.get('Balance')}")
-                    print(f"     Time: {record.get('Time')}")
+                    print(f"\n     \033[94mFound 1 matching record:\033[0m")
+                    print(f"     \033[93mRecord #{record['record_number']}\033[0m")
+                    print(f"     \033[93mOrder ID: {record.get('Order ID')}\033[0m")
+                    print(f"     \033[93mTransaction Type: {record.get('Transaction Type')}\033[0m")
+                    print(f"     \033[93mPhone Number: {record.get('Phone Number')}\033[0m")
+                    print(f"     \033[93mAmount: {record.get('Amount')}\033[0m")
+                    print(f"     \033[93mBalance: {record.get('Balance')}\033[0m")
+                    print(f"     \033[93mTime: {record.get('Time')}\033[0m")
 
                     config_log.write(f"     Found 1 matching record:\n")
                     config_log.write(f"     Record #{record['record_number']}\n")
                     config_log.write(f"     Order ID: {record.get('Order ID')}\n")
                     config_log.write(f"     Time: {record.get('Time')}\n")
 
-                    confirm = input(f"\n     Use this record as starting point? (y/n): ").strip().lower()
+                    confirm = input(f"\n     Use this record as starting point? (\033[92my\033[0m/\033[91mn\033[0m): ").strip().lower()
                     if confirm == 'y':
-                        start_timestamps[gateway] = record.get('Time')
-                        print(f"     Will process all transactions AFTER: {record.get('Time')}")
-                        config_log.write(f"     Starting from timestamp: {record.get('Time')}\n\n")
+                        start_timestamps[gateway] = record.get('Order ID')
+                        print(f"     Will process all transactions AFTER Order ID: {record.get('Order ID')}")
+                        config_log.write(f"     Starting from Order ID: {record.get('Order ID')}\n\n")
                         break
                     else:
                         continue
 
                 else:
-                    print(f"\n     Found {len(matching_records)} matching records:")
+                    print(f"\n     \033[94mFound {len(matching_records)} matching records:\033[0m")
                     for idx, record in enumerate(matching_records, 1):
-                        print(f"\n     [{idx}] Record #{record['record_number']}")
-                        print(f"         Order ID: {record.get('Order ID')}")
-                        print(f"         Transaction Type: {record.get('Transaction Type')}")
-                        print(f"         Phone Number: {record.get('Phone Number')}")
-                        print(f"         Amount: {record.get('Amount')}")
-                        print(f"         Balance: {record.get('Balance')}")
-                        print(f"         Time: {record.get('Time')}")
+                        print(f"\n     \033[93m[{idx}] Record #{record['record_number']}\033[0m")
+                        print(f"         \033[93mOrder ID: {record.get('Order ID')}\033[0m")
+                        print(f"         \033[93mTransaction Type: {record.get('Transaction Type')}\033[0m")
+                        print(f"         \033[93mPhone Number: {record.get('Phone Number')}\033[0m")
+                        print(f"         \033[93mAmount: {record.get('Amount')}\033[0m")
+                        print(f"         \033[93mBalance: {record.get('Balance')}\033[0m")
+                        print(f"         \033[93mTime: {record.get('Time')}\033[0m")
 
                     config_log.write(f"     Found {len(matching_records)} matching records\n")
                     for idx, record in enumerate(matching_records, 1):
-                        config_log.write(f"     [{idx}] Record #{record['record_number']} | Time: {record.get('Time')}\n")
+                        config_log.write(f"     [{idx}] Record #{record['record_number']} | Order ID: {record.get('Order ID')}\n")
 
                     while True:
                         choice = input(f"\n     Select record number (1-{len(matching_records)}) or 'r' to retry: ").strip()
@@ -660,10 +660,10 @@ def get_start_by_balance():
                             choice_idx = int(choice) - 1
                             if 0 <= choice_idx < len(matching_records):
                                 selected_record = matching_records[choice_idx]
-                                start_timestamps[gateway] = selected_record.get('Time')
-                                print(f"     Will process all transactions AFTER: {selected_record.get('Time')}")
+                                start_timestamps[gateway] = selected_record.get('Order ID')
+                                print(f"     Will process all transactions AFTER Order ID: {selected_record.get('Order ID')}")
                                 config_log.write(f"     Selected record [{choice}]\n")
-                                config_log.write(f"     Starting from timestamp: {selected_record.get('Time')}\n\n")
+                                config_log.write(f"     Starting from Order ID: {selected_record.get('Order ID')}\n\n")
                                 break
                             else:
                                 print(f"     Please enter a number between 1 and {len(matching_records)}")
@@ -1040,7 +1040,7 @@ def add_transaction_details(record):
     # Check transaction type and execute category/subcategory selection only for ADJUSTMENTADD
     transaction_type = record.get("Transaction Type", "")
     
-    if transaction_type.upper() in ("ADJUSTMENTADD", "PENDING_DEPOSIT", "CASH_IN"):
+    if transaction_type.upper() in ("ADJUSTMENTADD", "PENDING_DEPOSIT", "CASH_IN", "INTERBANK_TRANSFER_IN"):
         enhanced_print(f"[INFO] {transaction_type} detected - executing category and subcategory selection")
         
         # ======================= Click on 'category' combobox and select 'Advance' =======================
@@ -1145,10 +1145,10 @@ def add_transaction_details(record):
 
         time.sleep(.5)
     else:
-        enhanced_print(f"[INFO] Transaction type '{transaction_type}' - skipping ADJUSTMENTADD/PENDING_DEPOSIT/CASH_IN category/subcategory selection")
+        enhanced_print(f"[INFO] Transaction type '{transaction_type}' - skipping ADJUSTMENTADD/PENDING_DEPOSIT/CASH_IN/INTERBANK_TRANSFER_IN category/subcategory selection")
 
     # Check transaction type and execute category/subcategory selection only for ADJUSTMENTDEDUCT
-    if transaction_type.upper() in ("ADJUSTMENTDEDUCT", "CASH_OUT"):
+    if transaction_type.upper() in ("ADJUSTMENTDEDUCT", "CASH_OUT", "INTERBANK_TRANSFER_OUT"):
         enhanced_print("[INFO] ADJUSTMENTDEDUCT detected - executing category selection")
         
         # ======================= Click on 'category' combobox and select 'Advance' =======================
@@ -1231,13 +1231,13 @@ def add_transaction_details(record):
         # time.sleep(.5)
 
     else:
-        enhanced_print(f"[INFO] Transaction type '{transaction_type}' - skipping ADJUSTMENTDEDUCT/CASH_OUT category selection")
+        enhanced_print(f"[INFO] Transaction type '{transaction_type}' - skipping ADJUSTMENTDEDUCT/CASH_OUT/INTERBANK_TRANSFER_OUT category selection")
 
     # Click 'out' radio button only for withdrawal transactions
     # enhanced_print(f"[DEBUG] Record transaction type: '{transaction_type}' (upper: '{transaction_type.upper()}')")
     # enhanced_print(f"[DEBUG] Is withdrawal check: {transaction_type.upper() == 'WITHDRAWAL'}")
     
-    if transaction_type.upper() in ("WITHDRAWAL", "MANUAL_WITHDRAWAL", "ADJUSTMENTDEDUCT", "CASH_OUT"):
+    if transaction_type.upper() in ("WITHDRAWAL", "MANUAL_WITHDRAWAL", "ADJUSTMENTDEDUCT", "CASH_OUT", "INTERBANK_TRANSFER_OUT"):
         enhanced_print(f"[INFO] {transaction_type} detected - clicking 'out' radio button")
         wait = WebDriverWait(driver, 15)
         out_radio = wait.until(
@@ -1313,7 +1313,7 @@ def add_transaction_details(record):
 
     # ===== Remark ===== (Only for CASH_IN, CASH_OUT, MANUAL_DEPOSIT, PENDING_DEPOSIT)
 
-    if transaction_type.upper() in ("CASH_IN", "CASH_OUT", "MANUAL_DEPOSIT", "PENDING_DEPOSIT", "ADJUSTMENTADD", "ADJUSTMENTDEDUCT"):
+    if transaction_type.upper() in ("CASH_IN", "CASH_OUT", "MANUAL_DEPOSIT", "PENDING_DEPOSIT", "ADJUSTMENTADD", "ADJUSTMENTDEDUCT", "INTERBANK_TRANSFER_IN", "INTERBANK_TRANSFER_OUT"):
         enhanced_print(f"[INFO] {transaction_type} transaction - filling remark field")
 
         remark_input = WebDriverWait(driver, 20).until(
@@ -1673,28 +1673,29 @@ def parse_and_execute(filename, start_timestamps=None):
 
                 # ✅ Only append once all fields are known (bank_tax can be None/missing)
                 if all([order_id, phone, amount, time_str, transaction_type]):
-                    # Check if we should skip this record based on start timestamp
+                    # Check if we should skip this record based on start Order ID
                     should_process = True
                     if start_timestamps and current_gateway in start_timestamps:
-                        start_ts = start_timestamps[current_gateway]
+                        start_id = start_timestamps[current_gateway]
 
-                        if start_ts == 'SKIP':
+                        if start_id == 'SKIP':
                             enhanced_print(f"[SKIP LOG] Gateway: {current_gateway} - Order ID: {order_id} - Type: {transaction_type} - Reason: Gateway set to SKIP")
                             should_process = False
-                        elif start_ts:
+                        elif start_id:
                             try:
-                                # Parse timestamps for comparison
-                                record_datetime = datetime.strptime(time_str, "%Y-%m-%d %H:%M:%S")
-                                start_datetime = datetime.strptime(start_ts, "%Y-%m-%d %H:%M:%S")
+                                # Parse Order IDs as integers for comparison
+                                record_order_id = int(str(order_id).strip())
+                                start_order_id = int(str(start_id).strip())
 
-                                # Process only records AFTER the start timestamp
-                                if record_datetime <= start_datetime:
-                                    enhanced_print(f"[SKIP LOG] Gateway: {current_gateway} - Order ID: {order_id} - Type: {transaction_type} - Reason: Timestamp {time_str} is not after start timestamp {start_ts}")
+                                # Process only records AFTER the start ID (higher IDs = more recent)
+                                if record_order_id <= start_order_id:
+                                    enhanced_print(f"[SKIP LOG] Gateway: {current_gateway} - Order ID: {order_id} - Type: {transaction_type} - Reason: Order ID {record_order_id} is not after start ID {start_order_id}")
                                     should_process = False
                                 else:
-                                    enhanced_print(f"[PROCESS LOG] Gateway: {current_gateway} - Order ID: {order_id} - Type: {transaction_type} - Will process (Timestamp {time_str} is after {start_ts})")
-                            except ValueError as e:
-                                enhanced_print(f"[WARNING] Could not compare timestamp {time_str} with start timestamp {start_ts}: {e}")
+                                    enhanced_print(f"[PROCESS LOG] Gateway: {current_gateway} - Order ID: {order_id} - Type: {transaction_type} - Will process (ID {record_order_id} is after {start_order_id})")
+                            except (ValueError, TypeError) as e:
+                                enhanced_print(f"[WARNING] Could not compare Order ID {order_id} with start ID {start_id}: {e}")
+                                should_process = False
 
                     if should_process:
                         enhanced_print(f"[DEBUG] Creating record with Transaction Type: {transaction_type}")

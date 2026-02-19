@@ -370,6 +370,29 @@ def print_grouped_phone_results(grouped_data):
         f.write(footer)
 
 
+def wait_for_table_loaded(driver, timeout=20):
+    """Wait for the ant-spin-spinning overlay to disappear, indicating table data is ready."""
+    try:
+        time.sleep(0.5)
+
+        spinner_elements = driver.find_elements(By.CSS_SELECTOR, "div.ant-spin-spinning")
+        if spinner_elements:
+            print("[INFO] Table loading detected (spinner). Waiting for data to load...")
+            WebDriverWait(driver, timeout).until(
+                EC.none_of(EC.presence_of_element_located((By.CSS_SELECTOR, "div.ant-spin-spinning")))
+            )
+            print("[INFO] Table loading complete (spinner removed)")
+        else:
+            print("[DEBUG] No spinner detected, table may already be loaded")
+
+        time.sleep(0.5)
+        return True
+    except Exception as e:
+        print(f"[WARNING] Timeout waiting for spinner to clear: {e}. Proceeding anyway.")
+        time.sleep(2)
+        return True
+
+
 def click_next_page(driver, wait_timeout=10):
     try:
         # Search for next button specifically outside the sidebar area (in main content)
@@ -377,7 +400,7 @@ def click_next_page(driver, wait_timeout=10):
             EC.element_to_be_clickable((By.CSS_SELECTOR, 'button.ant-pagination-item-link:has(span[aria-label="right"])'))
         )
         next_button.click()
-        time.sleep(2)
+        time.sleep(1)
         print("[INFO] Clicked on the Next button.")
         return True
     except Exception as e:
@@ -427,16 +450,16 @@ def run_optimized_phone_extraction(driver, start_date, end_date):
         
         # Try to go to next page
         print(f"[DEBUG] Attempting to navigate to next page...")
-        time.sleep(1)
         has_next = click_next_page(driver)
         if not has_next:
             print("[INFO] No more pages found. Finishing extraction.")
             break
-        else:
-            print(f"[SUCCESS] Successfully navigated to page {page_counter + 1}")
-            
+
+        # Wait for spinner/loading effect to finish before scraping next page
+        wait_for_table_loaded(driver)
+        print(f"[SUCCESS] Successfully navigated to page {page_counter + 1}")
+
         page_counter += 1
-        time.sleep(1)
     
     # Group records for output
     phone_groups = defaultdict(list)
