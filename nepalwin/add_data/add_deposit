@@ -861,6 +861,7 @@ def gateway_setup_movement(gateway_name):
         "Kumari Bank BAIJANATH YADAV_20251019": "Kumari Bank BIJAY YADAV_20251019",
         "LNWPAY": "LNWPAY",
         "CITIZENS_BANK_PRABESH KUMAR YADAV_20251204": "CITIZENS BANK PRABESH KUMAR YADAV 20251204",
+        "CITIZENS_BANK_CHANDAN KUMAR YADAV_20260225": "CITIZENS BANK CHANDAN KUMAR YADAV",
         "NIC_BANK_DEEPAK K.C._20251202": "NIC ASIA BANK DEEPAK K.C.",
         "MUKTINATH BANK_KUMAR YADAV_20251121": "MUKTINATH BANK_20251121"
     }
@@ -1582,7 +1583,7 @@ def parse_and_execute(filename, start_timestamps=None):
     gateway_balances = {}  # Will store latest balance for each gateway
 
     supported_gateways = {
-        "Laxmi_bank_Baijianath_20250407", "Esewa_bank_Shankar Yadav_20250612", "Laxmi_bank_Subash Sunar_20250806", "Laxmi_bank_Pawan kumar khatri_20250921", "Kumari Bank BAIJANATH YADAV_20251019", "LNWPAY", "CITIZENS_BANK_PRABESH KUMAR YADAV_20251204", "NIC_BANK_DEEPAK K.C._20251202", "MUKTINATH BANK_KUMAR YADAV_20251121"
+        "Laxmi_bank_Baijianath_20250407", "Esewa_bank_Shankar Yadav_20250612", "Laxmi_bank_Subash Sunar_20250806", "Laxmi_bank_Pawan kumar khatri_20250921", "Kumari Bank BAIJANATH YADAV_20251019", "LNWPAY", "CITIZENS_BANK_PRABESH KUMAR YADAV_20251204", "CITIZENS_BANK_CHANDAN KUMAR YADAV_20260225", "NIC_BANK_DEEPAK K.C._20251202", "MUKTINATH BANK_KUMAR YADAV_20251121"
     }
 
     # Temporary variables for one record
